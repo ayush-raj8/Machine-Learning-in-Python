@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- Bootstrap core CSS -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <title>Diabetes Checkup</title>
+</head>
+
+<style>
+body{
+	background: #E1E1E1;
+}
+#nav{
+
+}
+ul#navbar{
+	list-style-type: none;
+	background: #000000;
+	padding-left: 30%;
+}
+ul#navbar li{
+	display: inline-block;
+}
+ul#navbar li a{
+	display: block;
+	text-decoration: none;
+	color: #ffffff;
+	background: #000000;
+	padding: 20px;
+	font-size: 1.2em;
+	transition: all 0.5s ease;
+}
+ul#navbar li a:hover{
+	background: #ffffff;
+	color: #000000;
+}
+
+@media (max-width: 480px){
+	ul#navbar{
+		padding-left: 0;
+	}
+	ul#navbar li{
+		display: block;
+	}
+	ul#navbar li a{
+		display: block;
+		text-align: center;
+	}
+}
+@media (min-width: 481px) and (max-width: 767px){
+	ul#navbar{
+		padding-left: 0;
+	}
+	ul#navbar li{
+		display: block;
+	}
+	ul#navbar li a{
+		display: block;
+		text-align: center;
+	}
+}
+@media (min-width: 768px) and (max-width: 991px){
+	ul#navbar{
+		padding-left: 25%;
+	}
+}
+
+    .center {
+  margin: auto;
+  width: 30%;
+  border: 3px solid green;
+  padding: 10px;
+}
+
+</style>
+
+
+
+<body >
+	<div id="nav">
+		<ul id="navbar">
+			<li ><a href="{{ url_for('home') }}">Home</a>
+			</li><li><a href="#">Services</a>
+			</li><li><a href="#">About</a>
+			</li><li><a href="#">LinkedIn</a>
+			</li><li><a href="https://github.com/ayush-raj8">Github</a></li>
+		</ul>
+	</div>
+
+<br>
+<br>
+
+<div class="center" style="background-color:yellow;">
+    <center>
+    <h1 style="color:Red">Fill this form </h1>
+<div class="login ">
+    		<form action="{{ url_for('predict_diabetes1') }}" method="POST">
+                <br>
+
+                 <br>
+                <span>Glucose</span>
+                <input class="form-input" type="number" step="0.01" required type="text" name="Glucose" placeholder="in (mg/dL) eg. 87"><br>
+                <br>
+                <span>Insulin</span>
+                <input class="form-input" type="number" step="0.01" required type="text" name="Insulin" placeholder="in (IU/mL) eg.80"><br>
+                <br>
+        		<input type="submit" class="btn-primary btn" value="Submit">
+
+        	</form>
+    	</div>
+        </center>
+</div>
+</body>
+
+</html>

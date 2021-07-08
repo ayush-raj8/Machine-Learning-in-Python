@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    table {
+    margin:auto;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+}
+
+td, th {
+    border: 5px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+th{
+background-color: green;
+}
+td:hover{
+background-color:red;
+ font-size: 150%;
+ font-family: monospace;
+}
+
+tr:nth-child(odd) {
+    background-color: Yellow;
+}
+tr:nth-child(even) {
+    background-color: #00FF00;
+}
+</style>
+
+
+
+<body>
+
+<center>
+<table >
+    <thead>
+        {% for column in columns %}
+            <th>{{ column }}</th>
+        {% endfor %}
+     </thead>
+
+    <tbody>
+        {% for row in row_data %}
+            <tr>
+                {% for col, row_ in zip(columns, row) %}
+
+                    <td>{{row_}}</td>
+
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</center>
+
+
+
+
+</body>
+</html>

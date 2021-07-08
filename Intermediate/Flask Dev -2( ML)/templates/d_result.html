@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- Bootstrap core CSS -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <title>Diabetes Checkup</title>
+</head>
+
+<style>
+body{
+	background: #E1E1E1;
+}
+#nav{
+
+}
+ul#navbar{
+	list-style-type: none;
+	background: #000000;
+	padding-left: 30%;
+}
+ul#navbar li{
+	display: inline-block;
+}
+ul#navbar li a{
+	display: block;
+	text-decoration: none;
+	color: #ffffff;
+	background: #000000;
+	padding: 20px;
+	font-size: 1.2em;
+	transition: all 0.5s ease;
+}
+ul#navbar li a:hover{
+	background: #ffffff;
+	color: #000000;
+}
+@media (max-width: 480px){
+	ul#navbar{
+		padding-left: 0;
+	}
+	ul#navbar li{
+		display: block;
+	}
+	ul#navbar li a{
+		display: block;
+		text-align: center;
+	}
+}
+@media (min-width: 481px) and (max-width: 767px){
+	ul#navbar{
+		padding-left: 0;
+	}
+	ul#navbar li{
+		display: block;
+	}
+	ul#navbar li a{
+		display: block;
+		text-align: center;
+	}
+}
+@media (min-width: 768px) and (max-width: 991px){
+	ul#navbar{
+		padding-left: 25%;
+	}
+}
+
+  .center {
+  margin: auto;
+  width: 30%;
+}
+
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+.observe   {
+	border-bottom: 1px solid #FFFF00;
+     background-color: #FFFF31;
+}
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+
+
+
+
+
+</style>
+
+
+
+<body >
+	<div id="nav">
+		<ul id="navbar">
+			<li><a href="{{ url_for('home') }}">Home</a>
+			</li><li><a href="#">Services</a>
+			</li><li><a href="#">About</a>
+			</li><li><a href="#">LinkedIn</a>
+			</li><li><a href="https://github.com/ayush-raj8">Github</a></li>
+		</ul>
+	</div>
+
+<br>
+	<div class="center">
+	<table class="styled-table">
+		<h1>Report of Patient</h1>
+		<thead>
+		 <tr>
+            <th>Fields</th>
+            <th>Values</th>
+        </tr>
+		<tbody>
+		<tr>
+	<td>Glucose</td><td>{{glucose}}</td>
+	   </tr>
+
+		<tr>
+	<td >Insulin</td><td>{{insulin}}</td>
+		</tr>
+
+		<tr>
+	<td >Prediction</td>
+			<td>
+				{% if prediction==1 %}
+				<h4>You have DIABETES.</h4>
+
+			{% elif prediction==0 %}
+				<h4>You DON'T have diabetes.</h4>
+			{% endif %}
+			</td>
+		</tr>
+    	</thead>
+	</table>
+<br>
+	</div>
+</body>
+
+
+</html>
